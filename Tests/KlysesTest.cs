@@ -10,11 +10,12 @@ namespace Tests
 	{
 		[Test]
 		[Parallelizable(ParallelScope.All)]
-		[TestCase("a_example.in")]
-		[TestCase("b_little_bit_of_everything.in")]
-		[TestCase("c_many_ingredients.in")]
-		[TestCase("d_many_pizzas.in")]
-		[TestCase("e_many_teams.in")]
+		[TestCase("a.txt")]
+		[TestCase("b.txt")]
+		[TestCase("c.txt")]
+		[TestCase("d.txt")]
+		[TestCase("e.txt")]
+		[TestCase("f.txt")]
 		public void Solver1(string example)
 		{
 			var content = example.ReadFromFile();

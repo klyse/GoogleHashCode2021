@@ -6,12 +6,13 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{89BF8810-D63F-47C6-AF79-F1506E5F9F92}"
 	ProjectSection(SolutionItems) = preProject
 		Readme.md = Readme.md
-		Environment\input\a_example.in = Environment\input\a_example.in
-		Environment\input\b_little_bit_of_everything.in = Environment\input\b_little_bit_of_everything.in
-		Environment\input\c_many_ingredients.in = Environment\input\c_many_ingredients.in
-		Environment\input\d_many_pizzas.in = Environment\input\d_many_pizzas.in
-		Environment\input\e_many_teams.in = Environment\input\e_many_teams.in
-		Environment\input\practice_round_2021_v3.pdf = Environment\input\practice_round_2021_v3.pdf
+		Environment\input\a.txt = Environment\input\a.txt
+		Environment\input\b.txt = Environment\input\b.txt
+		Environment\input\c.txt = Environment\input\c.txt
+		Environment\input\d.txt = Environment\input\d.txt
+		Environment\input\e.txt = Environment\input\e.txt
+		Environment\input\f.txt = Environment\input\f.txt
+		Environment\input\hashcode_2021_online_qualifications.pdf = Environment\input\hashcode_2021_online_qualifications.pdf
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{8710159F-B588-4724-BE93-34E321B49752}"
