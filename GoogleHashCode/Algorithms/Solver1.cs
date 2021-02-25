@@ -34,27 +34,37 @@ namespace GoogleHashCode.Algorithms
 
 			var highValueStreets = allCarPaths
 				.OrderByDescending(c => c.Value)
-				.Take(allCarPaths.Count / 2)
+				.Take(allCarPaths.Count / 10)
+				.Select(c => c.Key)
+				.ToHashSet();
+
+			var lowValueStreets = allCarPaths
+				.OrderBy(c => c.Value)
+				.Take(allCarPaths.Count / 10)
 				.Select(c => c.Key)
 				.ToHashSet();
 
 			var notUsedStreets = input.Streets.Select(r => r.StreetName)
 				.Except(allCarPaths.Keys)
 				.ToList();
-			
+
 			foreach (var inputStreet in intersectionsWithStreets)
 			{
 				var schedule = new List<StreetSchedule>();
 
-				var validStreets = inputStreet.Streets.Except(notUsedStreets);
-				
+				var validStreets = inputStreet.Streets
+					.Except(notUsedStreets)
+					.Except(lowValueStreets);
+
 				foreach (var street in validStreets)
 				{
-					var value = highValueStreets.Contains(street) ? 3 : 2;
-					
+					var value = highValueStreets.Contains(street)
+						? 3
+						: 1;
+
 					schedule.Add(new StreetSchedule(street, value));
 				}
-				
+
 				if (!schedule.Any())
 					schedule.Add(new StreetSchedule(inputStreet.Streets.First(), 1));
 
