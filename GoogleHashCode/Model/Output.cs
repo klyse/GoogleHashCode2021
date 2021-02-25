@@ -20,10 +20,7 @@ namespace GoogleHashCode.Model
 				output.Add(intersection.ID.ToString());
 				output.Add(intersection.StreetsSchedule.Count.ToString());
                 foreach (var streetSchedule in intersection.StreetsSchedule)
-                {
-					output.Add(streetSchedule.StreetName);
-					output.Add(streetSchedule.DurationGreen.ToString());
-				}
+					output.Add($"{streetSchedule.StreetName} {streetSchedule.DurationGreen}");
 			}
 
 			return output.ToArray();
