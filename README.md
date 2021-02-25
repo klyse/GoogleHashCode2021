@@ -1,4 +1,4 @@
-﻿# Google Hashcode 2021 Even More Pizza
+﻿# Google Hashcode 2021
 
 ## Startup
 
@@ -27,12 +27,13 @@ These are the best scores we archived using various different versions of our al
 
 | Case                  |  Points  |
 |-----------------------|----------|
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-| **TOTAL** | ** ** |
+| A – An example | 2,002 |
+| B – By the ocean | 4,566,384 |
+| C – Checkmate | 1,298,753 |
+| D – Daily commute | 1,571,622 |
+| E – Etoile | 690,478 |
+| F – Forever jammed | 1,380,767 |
+| **TOTAL** | **9,510,006** |
 
 The score can be checked in the unit test output...
 
@@ -42,9 +43,9 @@ The score can be checked in the unit test output...
 
 | Name                 | Rank | Participants | Description             |
 | -------------------- | ---- | ------------ | ----------------------- |
-| Hub                  |      |              | Austria / GDG-Innsbruck |
-| Italy                |      |              | Rank filtered by country|
-| World                |      |              | Total rank              |
+| Hub | 2 | 5 | Austria / GDG-Innsbruck |
+| Italy | 30 | 236 | Rank filtered by country |
+| World | 620 | 7367 | Total rank |
 
 Team name: **DevOpsPirates**
 
