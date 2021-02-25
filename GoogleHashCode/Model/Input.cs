@@ -4,33 +4,28 @@ using System.Linq;
 namespace GoogleHashCode.Model
 {
 
-    public record Street
-    {
-        public int Begin;
-        public int End;
-        public string StreetName;
-        public int Length;
-    }
+    public record Street(int Begin, int End, string StreetName, int Length);
 
-    public record CarPath
-    {
-        public int NumberOfStreets;
-        public List<string> StreetNames;
-    }
+    public record CarPath(int NumberOfStreets, List<string> StreetNames);
 
-    public record Input
-	{
-        public int Duration;
-        public int NumberOfIntersections;
-        public int NumberOfStreets;
-        public int NumberOfCars;
-        public int BonusPoints;
-
-        public List<Street> Streets = new();
-
+    public record Input(int Duration, int NumberOfIntersections, int NumberOfStreets, int NumberOfCars, int BonusPoints, List<Street> Streets, List<CarPath> CarPaths)
+    { 
         public static Input Parse(string[] values)
-		{
-			return new();
-		}
-	}
+        {
+            var first = values.First().Split(" ", System.StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList();
+
+
+            //return new()
+            //{
+            //    Duration = first[0],
+
+            //    Duration = first[0];
+            //NumberOfIntersections = first[1];
+            //NumberOfStreets = first[2];
+            //NumberOfCars = first[3];
+            //BonusPoints = first[4];
+
+            return null;
+        }
+    }
 }
