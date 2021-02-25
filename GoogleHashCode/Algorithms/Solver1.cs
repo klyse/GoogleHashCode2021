@@ -32,6 +32,12 @@ namespace GoogleHashCode.Algorithms
 				})
 				.ToDictionary(c => c.StreetName, c => c.Count);
 
+			var highValueStreets = allCarPaths
+				.OrderByDescending(c => c.Value)
+				.Take(allCarPaths.Count / 2)
+				.Select(c => c.Key)
+				.ToHashSet();
+
 			var notUsedStreets = input.Streets.Select(r => r.StreetName)
 				.Except(allCarPaths.Keys)
 				.ToList();
@@ -40,9 +46,13 @@ namespace GoogleHashCode.Algorithms
 			{
 				var schedule = new List<StreetSchedule>();
 
-				foreach (var street in inputStreet.Streets.Except(notUsedStreets))
+				var validStreets = inputStreet.Streets.Except(notUsedStreets);
+				
+				foreach (var street in validStreets)
 				{
-					schedule.Add(new StreetSchedule(street, 1));
+					var value = highValueStreets.Contains(street) ? 3 : 2;
+					
+					schedule.Add(new StreetSchedule(street, value));
 				}
 				
 				if (!schedule.Any())
