@@ -9,7 +9,7 @@ namespace GoogleHashCode.Algorithms
 	{
 		public Output Solve(Input input)
 		{
-			return new();
+			return null;
 		}
 	}
 }
