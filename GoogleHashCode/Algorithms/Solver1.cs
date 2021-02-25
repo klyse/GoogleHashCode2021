@@ -53,13 +53,12 @@ namespace GoogleHashCode.Algorithms
 				var schedule = new List<StreetSchedule>();
 
 				var validStreets = inputStreet.Streets
-					.Except(notUsedStreets)
-					.Except(lowValueStreets);
+					.Except(notUsedStreets);
 
 				foreach (var street in validStreets)
 				{
 					var value = highValueStreets.Contains(street)
-						? 3
+						? 8
 						: 1;
 
 					schedule.Add(new StreetSchedule(street, value));
