@@ -30,45 +30,78 @@ namespace GoogleHashCode.Algorithms
 					StreetName = c.Key,
 					Count = c.Count()
 				})
-				.ToDictionary(c => c.StreetName, c => c.Count);
+				.ToList();
+
+			var allCarPathsDict = allCarPaths.ToDictionary(c => c.StreetName, c => c.Count);
 
 			var highValueStreets = allCarPaths
-				.OrderByDescending(c => c.Value)
-				.Take(allCarPaths.Count / 10)
-				.Select(c => c.Key)
+				.OrderByDescending(c => c.Count)
+				.Take(allCarPaths.Count / 20)
+				.Select(c => c.StreetName)
 				.ToHashSet();
 
 			var lowValueStreets = allCarPaths
-				.OrderBy(c => c.Value)
-				.Take(allCarPaths.Count / 10)
-				.Select(c => c.Key)
+				.OrderBy(c => c.Count)
+				.Take(allCarPaths.Count / 20)
+				.Select(c => c.StreetName)
 				.ToHashSet();
 
 			var notUsedStreets = input.Streets.Select(r => r.StreetName)
-				.Except(allCarPaths.Keys)
+				.Except(allCarPaths.Select(r => r.StreetName))
 				.ToList();
 
-			foreach (var inputStreet in intersectionsWithStreets)
+			foreach (var intersectionWithStreets in intersectionsWithStreets)
 			{
 				var schedule = new List<StreetSchedule>();
 
-				var validStreets = inputStreet.Streets
-					.Except(notUsedStreets);
+				var validStreets = intersectionWithStreets.Streets
+					.Except(notUsedStreets)
+					.ToList();
+
+				double totalCrossings = validStreets.Sum(c => allCarPathsDict[c]);
+
+				var maxTotalTime = Math.Min(60, validStreets.Count);
+
+				var streetValue = new Dictionary<string, double>();
+
+				if (!validStreets.Any())
+				{
+					foreach (var street in intersectionWithStreets.Streets)
+					{
+						schedule.Add(new StreetSchedule(street, 1));
+					}
+
+					continue;
+				}
 
 				foreach (var street in validStreets)
 				{
-					var value = highValueStreets.Contains(street)
-						? 8
-						: 1;
+					double value = allCarPathsDict[street] / totalCrossings * 100;
 
-					schedule.Add(new StreetSchedule(street, value));
+					// if (highValueStreets.Contains(street))
+					// 	value *= 2;
+					//
+					// if (lowValueStreets.Contains(street))
+					// 	value /= 2;
+
+					streetValue[street] = value;
 				}
 
-				if (!schedule.Any())
-					schedule.Add(new StreetSchedule(inputStreet.Streets.First(), 1));
+				var maxPerCrossing = 10;
+				double sumVal = streetValue.Sum(c => c.Value);
+
+				foreach (var street in validStreets)
+				{
+					double value = streetValue[street] / sumVal * maxPerCrossing;
+
+					value = Math.Min(value, maxPerCrossing);
+					value = Math.Max(value, 1);
+
+					schedule.Add(new StreetSchedule(street, (int) value));
+				}
 
 
-				var intersection = new Intersection(inputStreet.Id, schedule);
+				var intersection = new Intersection(intersectionWithStreets.Id, schedule);
 				intersections.Add(intersection);
 			}
 
