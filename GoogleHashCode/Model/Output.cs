@@ -5,23 +5,12 @@ using GoogleHashCode.Base;
 
 namespace GoogleHashCode.Model
 {
-	public record StreetSchedule
-    {
-		public string StreetName;
-		public int DurationGreem;
-	}
+	public record StreetSchedule(string StreetName, int DurationGreem);
 
-	public record Intersection
-    {
-		public int ID;
-		public List<StreetSchedule> StreetsSchedule = new();
-    }
+	public record Intersection(int ID, List<StreetSchedule> StreetsSchedule);
 
-
-	public record Output : IOutput
+	public record Output(List<Intersection> Intersections) : IOutput
 	{
-		public List<Intersection> Intersections = new();
-
 		public string[] GetOutputFormat()
 		{
 			return null;
