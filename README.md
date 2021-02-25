@@ -44,8 +44,9 @@ The score can be checked in the unit test output...
 | Name                 | Rank | Participants | Description             |
 | -------------------- | ---- | ------------ | ----------------------- |
 | Hub | 2 | 5 | Austria / GDG-Innsbruck |
-| Italy | 30 | 236 | Rank filtered by country |
-| World | 620 | 7367 | Total rank |
+| Italy | 34 | 301 | Rank filtered by country |
+| World | 839 **(Top 10% 🤩)** | 9004 | Total rank |
+
 
 Team name: **DevOpsPirates**
 
