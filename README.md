@@ -1,6 +1,8 @@
-﻿# Google Hashcode 2021
+# Google Hashcode 2021
 
 ## Startup
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fklyse%2FGoogleHashCode2021.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fklyse%2FGoogleHashCode2021?ref=badge_shield)
+
 
 Input folder: `\input`.
 
@@ -61,3 +63,7 @@ git archive --format zip --output [replace with solution dir]\Environment\output
 VolkmarR: [@VolkmarR](https://github.com/VolkmarR/)
 
 Klyse: [@Klyse](https://github.com/klyse/)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fklyse%2FGoogleHashCode2021.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fklyse%2FGoogleHashCode2021?ref=badge_large)
